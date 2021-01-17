@@ -19,6 +19,7 @@
     <div>
         <table class="table table-striped">
             <tr>
+                <th>ID</th>
                 <th>Vorname</th>
                 <th>Nachname</th>
                 <th>Telefonnummer</th>
@@ -28,8 +29,10 @@
                 <th>Haus-Nr.</th>
                 <th>PLZ</th>
                 <th>Ort</th>
+                <th>Details</th>
             </tr>
             <tr th:each="c : ${contacts}">
+                <td th:text="${c.getId()}"></td>
                 <td th:text="${c.getForname()}"></td>
                 <td th:text="${c.getLastname()}"></td>
                 <td th:text="${c.getPhone()}"></td>
@@ -38,7 +41,12 @@
                 <td th:text="${c.getStreet()}"></td>       
                 <td th:text="${c.getHousenumber()}"></td>       
                 <td th:text="${c.getZipcode()}"></td>       
-                <td th:text="${c.getLocation()}"></td>       
+                <td th:text="${c.getLocation()}"></td>
+                <td>
+                    <form method="POST" th:action="@{/contact-detail(id=${c.getId()})}">
+                        <button type="submit" name="submit" value="value" class="link-button">view</button>
+                    </form>
+                </td>
             </tr>
         </table>
     </div>
