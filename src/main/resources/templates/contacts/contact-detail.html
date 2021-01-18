@@ -1,15 +1,60 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+    <title>Kontakt</title>
 </head>
 <body>
-<h3 th:text="${contact_forname}">Contact</h3>
-<h3 th:text="${contact_lastname}">Contact</h3>
-<form th:action="@{/kontakte}">
-    <input type="submit" value="Kontakte"/>
-</form>
+
+<div >
+    <h1>Kontakt-Detail</h1>
+    <form th:action="@{/new-contact}">
+        <input type="submit" value="Hinzufügen"/>
+    </form>
+    <div>
+        <table class="table table-striped">
+            <tr>
+                <th>Vorname</th>
+                <th>Nachname</th>
+                <th>Telefonnummer</th>
+                <th>Email</th>
+                <th>Geburtstag</th>
+                <th>Straße</th>
+                <th>Haus-Nr.</th>
+                <th>PLZ</th>
+                <th>Ort</th>
+                <th>Details</th>
+            </tr>
+            <tr>
+                <td th:text="${forname}"></td>
+                <td th:text="${lastname}"></td>
+                <td th:text="${phone}"></td>
+                <td th:text="${email}"></td>
+                <td th:text="${birthday}"></td>
+                <td th:text="${street}"></td>
+                <td th:text="${housenumber}"></td>
+                <td th:text="${zipcode}"></td>
+                <td th:text="${location}"></td>
+                <td><form th:action="@{/kontakte}">
+                    <input type="submit" value="zurück"/>
+                </form></td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+<script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+
+
+
 
 </body>
 </html>

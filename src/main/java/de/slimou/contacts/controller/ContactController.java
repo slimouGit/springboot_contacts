@@ -29,8 +29,15 @@ public class ContactController {
 
     @RequestMapping("/contact-detail")
     public String detailansicht(@RequestParam("id") int id, Model model) {
-        model.addAttribute("contact_forname", contactRepository.findById(id).get().getForname());
-        model.addAttribute("contact_lastname", contactRepository.findById(id).get().getLastname());
+        model.addAttribute("forname", contactRepository.findById(id).get().getForname());
+        model.addAttribute("lastname", contactRepository.findById(id).get().getLastname());
+        model.addAttribute("phone", contactRepository.findById(id).get().getPhone());
+        model.addAttribute("email", contactRepository.findById(id).get().getEmail());
+        model.addAttribute("birthday", contactRepository.findById(id).get().getBirthday());
+        model.addAttribute("street", contactRepository.findById(id).get().getStreet());
+        model.addAttribute("housenumber", contactRepository.findById(id).get().getHousenumber());
+        model.addAttribute("zipcode", contactRepository.findById(id).get().getZipcode());
+        model.addAttribute("location", contactRepository.findById(id).get().getLocation());
         return "contacts/contact-detail";
     }
 }
