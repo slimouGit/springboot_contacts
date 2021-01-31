@@ -1,6 +1,9 @@
 package de.slimou.contacts.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
@@ -11,30 +14,40 @@ public class Contact {
     @GeneratedValue(strategy=javax.persistence.GenerationType.IDENTITY)
     private Integer id;
 
+    @NotNull(message = "Fehler")
     @Column(name="forname")
     private String forname;
 
+    @NotNull(message = "Fehler")
     @Column(name="lastname")
     private String lastname;
 
+    @NotNull(message = "Fehler")
     @Column(name="phone")
     private String phone;
 
+    @NotNull(message = "Fehler")
     @Column(name="email")
     private String email;
 
+    @NotNull(message = "Fehler")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name="birthday")
     private LocalDate birthday;
 
+    @NotNull(message = "Fehler")
     @Column(name="street")
     private String street;
 
+    @NotNull(message = "Fehler")
     @Column(name="housenumber")
     private String housenumber;
 
+    @NotNull(message = "Fehler")
     @Column(name="zipcode")
     private Integer zipcode;
 
+    @NotNull(message = "Fehler")
     @Column(name="location")
     private String location;
 
