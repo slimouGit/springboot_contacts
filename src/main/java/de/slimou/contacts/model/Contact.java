@@ -3,7 +3,7 @@ package de.slimou.contacts.model;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 @Entity
@@ -14,40 +14,42 @@ public class Contact {
     @GeneratedValue(strategy=javax.persistence.GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull(message = "Fehler")
+    @NotBlank(message = "Bitte einen Vornamen angeben")
+    @Size(min = 3, message = "Der Vorname muss mindestens 3 Zeichen einthalten")
     @Column(name="forname")
     private String forname;
 
-    @NotNull(message = "Fehler")
+    @NotBlank(message = "Bitte einen Nachnamen angeben")
     @Column(name="lastname")
     private String lastname;
 
-    @NotNull(message = "Fehler")
+    @NotBlank(message = "Bitte eine Telefonnummer angeben")
     @Column(name="phone")
     private String phone;
 
-    @NotNull(message = "Fehler")
+    @NotEmpty(message = "Bitte eine Email-Adresse angeben")
     @Column(name="email")
     private String email;
 
-    @NotNull(message = "Fehler")
+    @NotNull(message = "Bitte das Geburtsdatum angeben")
+    @PastOrPresent(message="Bitte kein Datum in der Zukunft angeben")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name="birthday")
     private LocalDate birthday;
 
-    @NotNull(message = "Fehler")
+    @NotBlank(message = "Bitte die Strasse angeben")
     @Column(name="street")
     private String street;
 
-    @NotNull(message = "Fehler")
+    @NotBlank(message = "Bitte die Hausnummer angeben")
     @Column(name="housenumber")
     private String housenumber;
 
-    @NotNull(message = "Fehler")
+    @NotNull(message = "Bitte eine Postleitzahl angeben")
     @Column(name="zipcode")
     private Integer zipcode;
 
-    @NotNull(message = "Fehler")
+    @NotBlank(message = "Bitte den Wohnort angeben")
     @Column(name="location")
     private String location;
 
