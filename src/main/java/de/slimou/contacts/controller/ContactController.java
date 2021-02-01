@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 public class ContactController {
@@ -19,7 +20,7 @@ public class ContactController {
     }
 
     @GetMapping(path = "/kontakte")
-    public String uebersicht(Model model){
+    public String uebersicht(Model model) {
         model.addAttribute("contacts", contactRepository.findAll());
         return "contacts/contact-list";
     }
@@ -39,18 +40,45 @@ public class ContactController {
     }
 
     @GetMapping(path = "/new-contact")
-    public String hinzufuegen(Model model){
+    public String hinzufuegen(Model model) {
         Contact c = new Contact();
         model.addAttribute("contact", c);
         return "contacts/contact-add";
     }
 
     @PostMapping(path = "/new-contact")
-    public String speicherKontakt(Model model, @Valid @ModelAttribute("contact") Contact c, BindingResult results){
-        if(results.hasErrors()){
+    public String speicherKontakt(Model model, @Valid @ModelAttribute("contact") Contact c, BindingResult results) {
+        if (results.hasErrors()) {
             return "contacts/contact-add";
         }
         contactRepository.save(c);
+        return "redirect:/kontakte";
+    }
+
+    @GetMapping(path = "/edit-contact/{id}")
+    public String bearbeiten(Model model, @PathVariable Integer id) {
+        Optional<Contact> c = contactRepository.findById(id);
+        if (c.isPresent()) {
+            model.addAttribute("contact", c.get());
+        } else {
+            return "contacts/contact-list";
+        }
+        return "contacts/contact-edit";
+    }
+
+    @PostMapping(path = "/edit-contact/{id}")
+    public String aktualisiereKontakt(Model model, @Valid @ModelAttribute("contact") Contact c, BindingResult results, @PathVariable Integer id) {
+        if (results.hasErrors()) {
+            return "contacts/edit-contact";
+        }
+        contactRepository.save(c);
+        return "redirect:/kontakte";
+    }
+
+    @GetMapping(path = "/delete-contact/{id}")
+    public String loeschen(Model model, @PathVariable Integer id) {
+        contactRepository.deleteById(id);
+
         return "redirect:/kontakte";
     }
 }

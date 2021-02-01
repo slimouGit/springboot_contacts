@@ -27,29 +27,22 @@ public class Contact {
     @Column(name="phone")
     private String phone;
 
-    @NotEmpty(message = "Bitte eine Email-Adresse angeben")
     @Column(name="email")
     private String email;
-
-    @NotNull(message = "Bitte das Geburtsdatum angeben")
-    @PastOrPresent(message="Bitte kein Datum in der Zukunft angeben")
+    
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name="birthday")
     private LocalDate birthday;
 
-    @NotBlank(message = "Bitte die Strasse angeben")
     @Column(name="street")
     private String street;
 
-    @NotBlank(message = "Bitte die Hausnummer angeben")
     @Column(name="housenumber")
     private String housenumber;
 
-    @NotNull(message = "Bitte eine Postleitzahl angeben")
     @Column(name="zipcode")
     private Integer zipcode;
 
-    @NotBlank(message = "Bitte den Wohnort angeben")
     @Column(name="location")
     private String location;
 

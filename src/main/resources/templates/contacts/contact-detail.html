@@ -13,9 +13,7 @@
 
 <div >
     <h1>Kontakt-Detail</h1>
-    <form th:action="@{/new-contact}">
-        <input type="submit" value="Hinzufügen"/>
-    </form>
+    <a class="btn btn-info" href="/new-contact">Kontakt hinzufügen</a>
     <div>
         <table class="table table-striped">
             <tr>
@@ -28,7 +26,7 @@
                 <th>Haus-Nr.</th>
                 <th>PLZ</th>
                 <th>Ort</th>
-                <th>Details</th>
+                <th></th>
             </tr>
             <tr>
                 <td th:text="${forname}"></td>
@@ -40,9 +38,9 @@
                 <td th:text="${housenumber}"></td>
                 <td th:text="${zipcode}"></td>
                 <td th:text="${location}"></td>
-                <td><form th:action="@{/kontakte}">
-                    <input type="submit" value="zurück"/>
-                </form></td>
+                <td>
+                    <a class="btn btn-info" th:href="@{/kontakte}" >zurück</a>
+                </td>
             </tr>
         </table>
     </div>

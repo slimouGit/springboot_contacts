@@ -11,16 +11,16 @@
 </head>
 <body>
 
-<div >
+<div>
     <h1>Kontakt-Liste</h1>
-    <form th:action="@{/new-contact}">
-        <input type="submit" value="Hinzufügen"/>
-    </form>
+    <a class="btn btn-info" href="/new-contact">Kontakt hinzufügen</a>
     <div>
         <table class="table table-striped">
             <tr>
                 <th>Vorname</th>
                 <th>Nachname</th>
+                <th></th>
+                <th></th>
                 <th></th>
             </tr>
             <tr th:each="c : ${contacts}">
@@ -28,8 +28,14 @@
                 <td th:text="${c.getLastname()}"></td>
                 <td>
                     <form method="POST" th:action="@{/contact-detail(id=${c.getId()})}">
-                        <button type="submit" name="submit" value="value" class="link-button">view</button>
+                        <button type="submit" name="submit" value="value" class="btn btn-info">view</button>
                     </form>
+                </td>
+                <td>
+                    <a class="btn btn-info" th:href="@{'/edit-contact/'+ ${c.id}}" >bearbeiten</a>
+                </td>
+                <td>
+                    <a class="btn btn-info" th:href="@{'/delete-contact/'+ ${c.id}}" >löschen</a>
                 </td>
             </tr>
         </table>
