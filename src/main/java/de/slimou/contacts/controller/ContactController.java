@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.Optional;
@@ -47,11 +48,13 @@ public class ContactController {
     }
 
     @PostMapping(path = "/new-contact")
-    public String speicherKontakt(Model model, @Valid @ModelAttribute("contact") Contact c, BindingResult results) {
+    public String speicherKontakt(Model model, @Valid @ModelAttribute("contact") Contact c, BindingResult results, RedirectAttributes redirAttrs) {
         if (results.hasErrors()) {
             return "contacts/contact-add";
         }
         contactRepository.save(c);
+        redirAttrs.addFlashAttribute("success", "Kontakt wurde erstellt");
+
         return "redirect:/kontakte";
     }
 
@@ -76,9 +79,9 @@ public class ContactController {
     }
 
     @GetMapping(path = "/delete-contact/{id}")
-    public String loeschen(Model model, @PathVariable Integer id) {
+    public String loeschen(Model model, @PathVariable Integer id, RedirectAttributes redirAttrs) {
         contactRepository.deleteById(id);
-
+        redirAttrs.addFlashAttribute("success", "Erolgreich gelöscht");
         return "redirect:/kontakte";
     }
 }

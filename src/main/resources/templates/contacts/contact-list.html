@@ -13,6 +13,9 @@
 
 <div>
     <h1>Kontakt-Liste</h1>
+    <div class="alert alert-success" role="alert" th:text="${success}" th:if="${success}">
+
+    </div>
     <a class="btn btn-info" href="/new-contact">Kontakt hinzufügen</a>
     <div>
         <table class="table table-striped">

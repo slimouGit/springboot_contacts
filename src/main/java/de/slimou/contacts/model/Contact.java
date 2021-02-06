@@ -29,7 +29,7 @@ public class Contact {
 
     @Column(name="email")
     private String email;
-    
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name="birthday")
     private LocalDate birthday;
