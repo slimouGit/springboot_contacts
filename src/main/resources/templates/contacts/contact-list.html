@@ -23,21 +23,13 @@
                 <th>Vorname</th>
                 <th>Nachname</th>
                 <th></th>
-                <th></th>
-                <th></th>
             </tr>
             <tr th:each="c : ${contacts}">
                 <td th:text="${c.getForname()}"></td>
                 <td th:text="${c.getLastname()}"></td>
                 <td>
-                    <form method="POST" th:action="@{/contact-detail(id=${c.getId()})}">
-                        <button type="submit" name="submit" value="value" class="btn btn-info">view</button>
-                    </form>
-                </td>
-                <td>
+                    <a class="btn btn-info" th:href="@{'/edit-view/'+ ${c.id}}" >view</a>
                     <a class="btn btn-info" th:href="@{'/edit-contact/'+ ${c.id}}" >bearbeiten</a>
-                </td>
-                <td>
                     <a class="btn btn-info" th:href="@{'/delete-contact/'+ ${c.id}}" >löschen</a>
                 </td>
             </tr>

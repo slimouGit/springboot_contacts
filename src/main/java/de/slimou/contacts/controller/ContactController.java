@@ -41,6 +41,26 @@ public class ContactController {
         return "contacts/contact-detail";
     }
 
+    @GetMapping(path = "/edit-view/{id}")
+    public String viewContact(Model model, @PathVariable Integer id) {
+        Optional<Contact> c = contactRepository.findById(id);
+        if (c.isPresent()) {
+            model.addAttribute("contact", c.get());
+            model.addAttribute("forname", c.get().getForname());
+            model.addAttribute("lastname", c.get().getLastname());
+            model.addAttribute("phone", c.get().getPhone());
+            model.addAttribute("email", c.get().getEmail());
+            model.addAttribute("birthday", c.get().getBirthday());
+            model.addAttribute("street", c.get().getStreet());
+            model.addAttribute("housenumber", c.get().getHousenumber());
+            model.addAttribute("zipcode", c.get().getZipcode());
+            model.addAttribute("location", c.get().getLocation());
+        } else {
+            return "contacts/contact-list";
+        }
+        return "contacts/contact-detail";
+    }
+
     @GetMapping(path = "/new-contact")
     public String hinzufuegen(Model model) {
         Contact c = new Contact();
