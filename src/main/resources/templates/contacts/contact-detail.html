@@ -13,34 +13,43 @@
 
 <div >
     <h1>Kontakt-Detail</h1>
-    <a class="btn btn-info" href="/new-contact">Kontakt hinzufügen</a>
     <div>
         <table class="table table-striped">
             <tr>
-                <th>Vorname</th>
-                <th>Nachname</th>
-                <th>Telefonnummer</th>
-                <th>Email</th>
-                <th>Geburtstag</th>
-                <th>Straße</th>
-                <th>Haus-Nr.</th>
-                <th>PLZ</th>
-                <th>Ort</th>
-                <th></th>
+                <td width="10%">Vorname</td><td th:text="${forname}"></td>
             </tr>
             <tr>
-                <td th:text="${forname}"></td>
-                <td th:text="${lastname}"></td>
-                <td th:text="${phone}"></td>
-                <td th:text="${email}"></td>
-                <td th:text="${birthday}"></td>
-                <td th:text="${street}"></td>
-                <td th:text="${housenumber}"></td>
-                <td th:text="${zipcode}"></td>
-                <td th:text="${location}"></td>
+                <td width="10%">Nachname</td><td th:text="${lastname}"></td>
+            </tr>
+            <tr>
+                <td width="10%">Telefon</td><td th:text="${phone}"></td>
+            </tr>
+            <tr>
+                <td width="10%">Email</td><td th:text="${email}"></td>
+            </tr>
+            <tr>
+                <td width="10%">Geburtstag</td><td th:text="${birthday}"></td>
+            </tr>
+            <tr>
+                <td width="10%">Straße</td><td th:text="${street}"></td>
+            </tr>
+            <tr>
+                <td width="10%">Haus-Nr.</td><td th:text="${housenumber}"></td>
+            </tr>
+            <tr>
+                <td width="10%">Postleitzahl</td><td th:text="${zipcode}"></td>
+            </tr>
+            <tr>
+                <td width="10%">Ort</td><td th:text="${location}"></td>
+            </tr>
+            <tr>
+                <td width="10%"></td>
                 <td>
                     <a class="btn btn-info" th:href="@{/kontakte}" >zurück</a>
+                    <a class="btn btn-info" th:href="@{'/edit-contact/'+ ${id}}" >bearbeiten</a>
+                    <a class="btn btn-info" th:href="@{'/delete-contact/'+ ${id}}" >löschen</a>
                 </td>
+            </tr>
             </tr>
         </table>
     </div>

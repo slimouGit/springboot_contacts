@@ -28,6 +28,7 @@ public class ContactController {
 
     @RequestMapping("/contact-detail")
     public String detailansicht(@RequestParam("id") int id, Model model) {
+        model.addAttribute("id", contactRepository.findById(id).get().getId());
         model.addAttribute("forname", contactRepository.findById(id).get().getForname());
         model.addAttribute("lastname", contactRepository.findById(id).get().getLastname());
         model.addAttribute("phone", contactRepository.findById(id).get().getPhone());
