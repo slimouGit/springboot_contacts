@@ -101,8 +101,9 @@ public class ContactController {
 
     @GetMapping(path = "/delete-contact/{id}")
     public String loeschen(Model model, @PathVariable Integer id, RedirectAttributes redirAttrs) {
+        Optional<Contact> c = contactRepository.findById(id);
         contactRepository.deleteById(id);
-        redirAttrs.addFlashAttribute("success", "Erolgreich gelöscht");
+        redirAttrs.addFlashAttribute("success", c.get().getLastname() + " wurde erolgreich gelöscht");
         return "redirect:/kontakte";
     }
 }
