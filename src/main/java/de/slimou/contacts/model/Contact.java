@@ -7,43 +7,43 @@ import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name="contact")
+@Table(name = "contact")
 public class Contact {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy=javax.persistence.GenerationType.IDENTITY)
+    @GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY)
     private Integer id;
 
     @NotBlank(message = "Bitte einen Vornamen angeben")
     @Size(min = 3, message = "Der Vorname muss mindestens 3 Zeichen einthalten")
-    @Column(name="forname")
+    @Column(name = "forname")
     private String forname;
 
     @NotBlank(message = "Bitte einen Nachnamen angeben")
-    @Column(name="lastname")
+    @Column(name = "lastname")
     private String lastname;
 
     @NotBlank(message = "Bitte eine Telefonnummer angeben")
-    @Column(name="phone")
+    @Column(name = "phone")
     private String phone;
 
-    @Column(name="email")
+    @Column(name = "email")
     private String email;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @Column(name="birthday")
+    @Column(name = "birthday")
     private LocalDate birthday;
 
-    @Column(name="street")
+    @Column(name = "street")
     private String street;
 
-    @Column(name="housenumber")
+    @Column(name = "housenumber")
     private String housenumber;
 
-    @Column(name="zipcode")
+    @Column(name = "zipcode")
     private Integer zipcode;
 
-    @Column(name="location")
+    @Column(name = "location")
     private String location;
 
     public Contact() {

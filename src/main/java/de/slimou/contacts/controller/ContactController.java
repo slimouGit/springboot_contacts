@@ -1,6 +1,7 @@
 package de.slimou.contacts.controller;
 
 import de.slimou.contacts.model.Contact;
+import de.slimou.contacts.model.Search;
 import de.slimou.contacts.repository.ContactRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -105,5 +106,12 @@ public class ContactController {
         contactRepository.deleteById(id);
         redirAttrs.addFlashAttribute("success", c.get().getLastname() + " wurde erolgreich gelöscht");
         return "redirect:/kontakte";
+    }
+
+    @RequestMapping(path = "/suche")
+    public String sucheKontakt(Model model, @ModelAttribute("search") Search s) {
+        Contact c = new Contact();
+        model.addAttribute("search", c);
+        return "contacts/contact-search";
     }
 }

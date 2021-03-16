@@ -11,43 +11,52 @@
 </head>
 <body>
 
-<div >
+<div>
     <h1>Kontakt-Detail</h1>
     <div>
         <table class="table table-striped">
             <tr>
-                <td width="10%">Vorname</td><td th:text="${forname}"></td>
+                <td width="10%">Vorname</td>
+                <td th:text="${forname}"></td>
             </tr>
             <tr>
-                <td width="10%">Nachname</td><td th:text="${lastname}"></td>
+                <td width="10%">Nachname</td>
+                <td th:text="${lastname}"></td>
             </tr>
             <tr>
-                <td width="10%">Telefon</td><td th:text="${phone}"></td>
+                <td width="10%">Telefon</td>
+                <td th:text="${phone}"></td>
             </tr>
             <tr>
-                <td width="10%">Email</td><td th:text="${email}"></td>
+                <td width="10%">Email</td>
+                <td th:text="${email}"></td>
             </tr>
             <tr>
-                <td width="10%">Geburtstag</td><td th:text="${birthday}"></td>
+                <td width="10%">Geburtstag</td>
+                <td th:text="${birthday}"></td>
             </tr>
             <tr>
-                <td width="10%">Straße</td><td th:text="${street}"></td>
+                <td width="10%">Straße</td>
+                <td th:text="${street}"></td>
             </tr>
             <tr>
-                <td width="10%">Haus-Nr.</td><td th:text="${housenumber}"></td>
+                <td width="10%">Haus-Nr.</td>
+                <td th:text="${housenumber}"></td>
             </tr>
             <tr>
-                <td width="10%">Postleitzahl</td><td th:text="${zipcode}"></td>
+                <td width="10%">Postleitzahl</td>
+                <td th:text="${zipcode}"></td>
             </tr>
             <tr>
-                <td width="10%">Ort</td><td th:text="${location}"></td>
+                <td width="10%">Ort</td>
+                <td th:text="${location}"></td>
             </tr>
             <tr>
                 <td width="10%"></td>
                 <td>
-                    <a class="btn btn-info" th:href="@{/kontakte}" >zurück</a>
-                    <a class="btn btn-info" th:href="@{'/edit-contact/'+ ${id}}" >bearbeiten</a>
-                    <a class="btn btn-info" th:href="@{'/delete-contact/'+ ${id}}" >löschen</a>
+                    <a class="btn btn-default" th:href="@{/kontakte}">zurück</a>
+                    <a class="btn btn-default" th:href="@{'/edit-contact/'+ ${id}}">bearbeiten</a>
+                    <a class="btn btn-danger" th:href="@{'/delete-contact/'+ ${id}}">löschen</a>
                 </td>
             </tr>
             </tr>
@@ -58,9 +67,6 @@
 
 <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
 <script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
-
-
-
 
 
 </body>

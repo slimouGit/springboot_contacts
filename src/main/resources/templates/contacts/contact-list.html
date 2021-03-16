@@ -14,9 +14,8 @@
 <div>
     <h1>Kontakt-Liste</h1>
     <div class="alert alert-success" role="alert" th:text="${success}" th:if="${success}">
-
     </div>
-    <a class="btn btn-info" href="/new-contact">Kontakt hinzufügen</a>
+    <a class="btn btn-success" href="/new-contact">Kontakt hinzufügen</a>
     <div>
         <table class="table table-striped">
             <tr>
@@ -28,9 +27,9 @@
                 <td th:text="${c.getForname()}"></td>
                 <td th:text="${c.getLastname()}"></td>
                 <td>
-                    <a class="btn btn-info" th:href="@{'/edit-view/'+ ${c.id}}" >view</a>
-                    <a class="btn btn-info" th:href="@{'/edit-contact/'+ ${c.id}}" >bearbeiten</a>
-                    <a class="btn btn-info" th:href="@{'/delete-contact/'+ ${c.id}}" >löschen</a>
+                    <a class="btn btn-default" th:href="@{'/edit-view/'+ ${c.id}}">view</a>
+                    <a class="btn btn-default" th:href="@{'/edit-contact/'+ ${c.id}}">bearbeiten</a>
+                    <a class="btn btn-danger" th:href="@{'/delete-contact/'+ ${c.id}}">löschen</a>
                 </td>
             </tr>
         </table>

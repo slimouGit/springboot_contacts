@@ -11,74 +11,158 @@
 </head>
 <body>
 
-<div >
+<div>
     <h1>Kontakt hinzufügen</h1>
     <a class="btn btn-info" href="/kontakte">zur Übersicht</a>
     <form method="post" th:object="${contact}">
-        <fieldset>
-            <label>
-                Vorname
-            </label>
-            <input class="form-control" type="text" th:field="*{forname}"/>
-            <div class="alert alert-danger" th:errors="*{forname}">[error]</div>
-        </fieldset>
-        <fieldset>
-            <label>
-                Nachname
-            </label>
-            <input class="form-control" type="text" th:field="*{lastname}"/>
-            <div class="alert alert-danger" th:errors="*{lastname}">[error]</div>
-        </fieldset>
-        <fieldset>
-            <label>
-                Telefon
-            </label>
-            <input class="form-control" type="text" th:field="*{phone}"/>
-            <div class="alert alert-danger" th:errors="*{phone}">[error]</div>
-        </fieldset>
-        <fieldset>
-            <label>
-                Email
-            </label>
-            <input class="form-control" type="text" th:field="*{email}"/>
-            <div class="alert alert-danger" th:errors="*{email}">[error]</div>
-        </fieldset>
-        <fieldset>
-            <label>
-                Geburtstag
-            </label>
-            <input class="form-control" type="date" th:field="*{birthday}"/>
-            <div class="alert alert-danger" th:errors="*{birthday}">[error]</div>
-        </fieldset>
-        <fieldset>
-            <label>
-                Strasse
-            </label>
-            <input class="form-control" type="text" th:field="*{street}"/>
-            <div class="alert alert-danger" th:errors="*{street}">[error]</div>
-        </fieldset>
-        <fieldset>
-            <label>
-                Hausnummer
-            </label>
-            <input class="form-control" type="number" th:field="*{housenumber}"/>
-            <div class="alert alert-danger" th:errors="*{housenumber}">[error]</div>
-        </fieldset>
-        <fieldset>
-            <label>
-                Postleitzahl
-            </label>
-            <input class="form-control" type="number" th:field="*{zipcode}"/>
-            <div class="alert alert-danger" th:errors="*{zipcode}">[error]</div>
-        </fieldset>
-        <fieldset>
-            <label>
-                Ort
-            </label>
-            <input class="form-control" type="text" th:field="*{location}"/>
-            <div class="alert alert-danger" th:errors="*{location}">[error]</div>
-        </fieldset>
-        <input class="btn btn-info" type="submit" value="speichern">
+        <table class="table table-striped" width="100%">
+            <tr>
+                <td width="10%">
+                    <label>
+                        Vorname
+                    </label>
+                </td>
+                <td width="50%">
+                    <input class="form-control" type="text" th:field="*{forname}"/>
+                </td>
+                <td width="40%">
+                    <div class="alert alert-danger" th:errors="*{forname}">[error]</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        Nachname
+                    </label>
+                </td>
+                <td>
+                    <input class="form-control" type="text" th:field="*{lastname}"/>
+                </td>
+                <td>
+                    <div class="alert alert-danger" th:errors="*{lastname}">[error]</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        Telefon
+                    </label>
+                </td>
+                <td>
+                    <input class="form-control" type="text" th:field="*{phone}"/>
+                </td>
+                <td>
+                    <div class="alert alert-danger" th:errors="*{phone}">[error]</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                    <label>
+                        Email
+                    </label>
+                </td>
+                <td>
+
+                    <input class="form-control" type="text" th:field="*{email}"/>
+                </td>
+                <td>
+
+                    <div class="alert alert-danger" th:errors="*{email}">[error]</div>
+                </td>
+
+            </tr>
+            <tr>
+
+                <td>
+
+                    <label>
+                        Geburtstag
+                    </label>
+                </td>
+                <td>
+
+                    <input class="form-control" type="date" th:field="*{birthday}"/>
+                </td>
+                <td>
+
+                    <div class="alert alert-danger" th:errors="*{birthday}">[error]</div>
+                </td>
+            </tr>
+            <tr>
+
+
+                <td>
+
+                    <label>
+                        Strasse
+                    </label>
+                </td>
+                <td>
+
+                    <input class="form-control" type="text" th:field="*{street}"/>
+                </td>
+                <td>
+
+                    <div class="alert alert-danger" th:errors="*{street}">[error]</div>
+                </td>
+            </tr>
+            <tr>
+
+
+                <td>
+
+                    <label>
+                        Hausnummer
+                    </label>
+                </td>
+                <td>
+
+                    <input class="form-control" type="number" th:field="*{housenumber}"/>
+                </td>
+                <td>
+
+                    <div class="alert alert-danger" th:errors="*{housenumber}">[error]</div>
+                </td>
+            </tr>
+            <tr>
+
+
+                <td>
+
+                    <label>
+                        Postleitzahl
+                    </label>
+                </td>
+                <td>
+
+                    <input class="form-control" type="number" th:field="*{zipcode}"/>
+                </td>
+                <td>
+
+                    <div class="alert alert-danger" th:errors="*{zipcode}">[error]</div>
+                </td>
+            </tr>
+            <tr>
+
+
+                <td>
+
+                    <label>
+                        Ort
+                    </label>
+                </td>
+                <td>
+
+                    <input class="form-control" type="text" th:field="*{location}"/>
+                </td>
+                <td>
+
+                    <div class="alert alert-danger" th:errors="*{location}">[error]</div>
+                </td>
+            </tr>
+        </table>
+        <input class="btn btn-success" type="submit" value="speichern">
     </form>
     <div>
 
