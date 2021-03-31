@@ -1,8 +1,6 @@
-package de.slimou.contacts.controller;
+package de.slimou.contacts;
 
-import de.slimou.contacts.model.Contact;
-import de.slimou.contacts.model.Search;
-import de.slimou.contacts.repository.ContactRepository;
+import de.slimou.search.Search;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -21,11 +20,11 @@ public class ContactController {
         this.contactRepository = contactRepository;
     }
 
-    @GetMapping(path = "/kontakte")
-    public String uebersicht(Model model) {
-        model.addAttribute("contacts", contactRepository.findAll());
-        return "contacts/contact-list";
-    }
+        @GetMapping(path = "/kontakte")
+        public String uebersicht(Model model) {
+            model.addAttribute("contacts", contactRepository.findAll());
+            return "contacts/contact-list";
+        }
 
     @RequestMapping("/contact-detail")
     public String detailansicht(@RequestParam("id") int id, Model model) {
@@ -108,10 +107,18 @@ public class ContactController {
         return "redirect:/kontakte";
     }
 
-    @RequestMapping(path = "/suche")
-    public String sucheKontakt(Model model, @ModelAttribute("search") Search s) {
-        Contact c = new Contact();
-        model.addAttribute("search", c);
+    @GetMapping(path = "/search-contact")
+    public String sucheKontakt(Model model){
+        model.addAttribute("searchForm", new Search());
         return "contacts/contact-search";
     }
+
+    @PostMapping(path = "/search-contact")
+    public String findeKontakt(@RequestParam("forname") String forname, @RequestParam("lastname") String lastname) {
+        List<Contact> personListByName = this.contactRepository.findByName(forname, lastname);
+        return "redirect:/search-contact";
+    }
+
+
+
 }

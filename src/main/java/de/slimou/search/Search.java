@@ -1,4 +1,4 @@
-package de.slimou.contacts.model;
+package de.slimou.search;
 
 public class Search {
     private String forname;

@@ -1,4 +1,4 @@
-package de.slimou.contacts.model;
+package de.slimou.contacts;
 
 import org.springframework.format.annotation.DateTimeFormat;
 

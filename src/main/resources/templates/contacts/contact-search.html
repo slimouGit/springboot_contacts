@@ -14,9 +14,10 @@
 <div>
     <h1>Kontakt-Suche</h1>
     <div>
-        <form method="post" th:object="${search}">
+        <form method="post" th:object="${searchForm}">
             <input class="form-control" type="text" th:field="*{forname}"/>
-            <input type="submit" />
+            <input class="form-control" type="text" th:field="*{lastname}"/>
+            <input type="submit" value="Suchen" />
         </form>
     </div>
 

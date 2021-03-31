@@ -1,7 +1,5 @@
 package de.slimou.contacts;
 
-import de.slimou.contacts.model.Contact;
-import de.slimou.contacts.repository.ContactRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
