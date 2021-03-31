@@ -1,7 +1,11 @@
 package de.slimou.contacts.search;
 
+import javax.validation.constraints.NotBlank;
+
 public class Search {
+    @NotBlank(message = "Bitte einen Vornamen angeben")
     private String forname;
+    @NotBlank(message = "Bitte einen Nachnamen angeben")
     private String lastname;
 
     public String getForname() {

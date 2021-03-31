@@ -13,11 +13,25 @@
 
 <div>
     <h1>Kontakt-Suche</h1>
+    <a class="btn btn-info" href="/kontakte">zur Übersicht</a>
+    <a class="btn btn-success" href="/new-contact">Kontakt hinzufügen</a>
     <div>
         <form method="post" th:object="${searchForm}">
-            <input class="form-control" type="text" th:field="*{forname}"/>
-            <input class="form-control" type="text" th:field="*{lastname}"/>
-            <input type="submit" value="Suchen" />
+            <fieldset>
+                <label>
+                    Vorname
+                </label>
+                <input class="form-control" type="text" th:field="*{forname}"/>
+                <div class="alert alert-danger" th:errors="*{forname}">[error]</div>
+            </fieldset>
+            <fieldset>
+                <label>
+                    Nachname
+                </label>
+                <input class="form-control" type="text" th:field="*{lastname}"/>
+                <div class="alert alert-danger" th:errors="*{lastname}">[error]</div>
+            </fieldset>
+            <input type="submit" value="Suchen"/>
         </form>
     </div>
 
