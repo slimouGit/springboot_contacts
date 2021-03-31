@@ -1,4 +1,4 @@
-package de.slimou.contacts;
+package de.slimou.contacts.contact;
 
 import org.springframework.stereotype.Service;
 
